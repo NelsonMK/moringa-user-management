@@ -1,0 +1,62 @@
+<!-- Header -->
+<%- include('includes/_header') %>
+<!-- /Header -->
+
+<!-- Main Section -->
+<main id="main">
+	<div class="container">
+		<div class="box-nav d-flex-justify-between">
+			<a href="/add-user" class="border-shadow">
+				<span class="text-gradient">New user</span>
+			</a>
+		</div>
+
+		<form action="/" method="post">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Gender</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(let i = 0; i < users.length; i++) { %>
+
+					<tr>
+						<td><%= i + 1 %></td>
+						<td><%= users[i].name %></td>
+						<td><%= users[i].email %></td>
+						<td><%= users[i].gender %></td>
+						<td><%= users[i].status%></td>
+						<td>
+							<a
+								href="/update-user/<%= users[i].id %>"
+								class="btn broder-shadow update"
+							>
+								<span class="text-gradient">Update</span>
+							</a>
+							<a
+								class="btn broder-shadow delete"
+								data-id="<%= users[i].id %>"
+							>
+								<span class="text-gradient">Delete</span>
+							</a>
+						</td>
+					</tr>
+
+					<% } %>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</main>
+<!-- /Main Section -->
+
+<script src="/js/index.js"></script>
+<!-- Footer -->
+<%- include('includes/_footer') %>
+<!-- /Footer -->

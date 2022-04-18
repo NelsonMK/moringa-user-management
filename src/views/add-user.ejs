@@ -1,0 +1,104 @@
+<!-- Header -->
+<%- include('includes/_header') %>
+<!-- /Header -->
+
+<!-- Main Section -->
+<main id="main">
+	<div class="container">
+		<div class="box-nav d-flex-justify-between">
+			<div class="filter">
+				<a href="/">All Users</a>
+			</div>
+		</div>
+
+		<div class="form-title text-center">
+			<h2 class="text-dark">New User</h2>
+			<span class="text-ligth"
+				>Use the form below to create a new user</span
+			>
+		</div>
+
+		<form method="post" id="add-user" name="add-user">
+			<div class="new-user">
+				<div id="error"></div>
+				<div class="form-group">
+					<label for="name" class="text-light">Name</label>
+					<input type="hidden" id="id" value="" />
+					<input
+						type="text"
+						name="name"
+						id="name"
+						value=""
+						placeholder="Name"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="email" class="text-light">Email</label>
+					<input
+						type="text"
+						name="email"
+						id="email"
+						value=""
+						placeholder="Email Address"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="gender" class="text-light">Gender</label>
+					<div class="radio inline">
+						<input
+							type="radio"
+							name="gender"
+							id="male"
+							value="Male"
+						/>
+						<label for="male" class="radio-label">Male</label>
+					</div>
+					<div class="radio inline">
+						<input
+							type="radio"
+							name="gender"
+							id="female"
+							value="Female"
+						/>
+						<label for="female" class="radio-label">Female</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="text-light">Status</label>
+					<div class="radio inline">
+						<input
+							type="radio"
+							name="status"
+							id="active"
+							value="Active"
+						/>
+						<label for="active" class="radio-label">Active</label>
+					</div>
+					<div class="radio inline">
+						<input
+							type="radio"
+							name="status"
+							id="inactive"
+							value="Inactive"
+						/>
+						<label for="inactive" class="radio-label"
+							>Inactive</label
+						>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-dark update">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</main>
+<!-- /Main Section -->
+
+<script src="/js/add-user.js"></script>
+<!-- Footer -->
+<%- include('includes/_footer') %>
+<!-- /Footer -->

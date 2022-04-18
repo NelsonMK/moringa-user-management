@@ -1,0 +1,93 @@
+<!-- Header -->
+<%- include('includes/_header') %>
+<!-- /Header -->
+
+<!-- Main Section -->
+<main id="main">
+	<div class="container">
+		<div class="box-nav d-flex-justify-between">
+			<div class="filter">
+				<a href="/">All Users</a>
+			</div>
+		</div>
+
+		<div class="form-title text-center">
+			<h2 class="text-dark">Update User</h2>
+			<span class="text-ligth"
+				>Use the form below to update a pre existing user</span
+			>
+		</div>
+
+		<form method="post" id="update-user" name="update-user">
+			<div class="new-user">
+				<div class="form-group">
+					<label for="name" class="text-light">Name</label>
+					<input
+						type="hidden"
+						id="id"
+						name="id"
+						value="<%= user.id %>"
+					/>
+					<input
+						type="text"
+						name="name"
+						value="<%= user.name %>"
+						placeholder="Name"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="email" class="text-light">Email</label>
+					<input
+						type="text"
+						name="email"
+						value="<%= user.email %>"
+						placeholder="Email Address"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="gender" class="text-light">Gender</label>
+					<div class="radio inline">
+						<input type="radio" name="gender" id="male" value="Male"
+						<%= user.gender == 'Male' ? 'checked' : '' %> />
+						<label for="male" class="radio-label">Male</label>
+					</div>
+					<div class="radio inline">
+						<input type="radio" name="gender" id="female"
+						value="Female" <%= user.gender == 'Female' ? 'checked' :
+						'' %> />
+						<label for="female" class="radio-label">Female</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="text-light">Status</label>
+					<div class="radio inline">
+						<input type="radio" name="status" id="active"
+						value="Active" <%= user.status == 'Active' ? 'checked' :
+						'' %> />
+						<label for="active" class="radio-label">Active</label>
+					</div>
+					<div class="radio inline">
+						<input type="radio" name="status" id="inactive"
+						value="Inactive" <%= user.status == 'Inactive' ?
+						'checked' : '' %> />
+						<label for="inactive" class="radio-label"
+							>Inactive</label
+						>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-dark update">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</main>
+<!-- /Main Section -->
+
+<script src="/js/update-user.js"></script>
+<!-- Footer -->
+<%- include('includes/_footer') %>
+<!-- /Footer -->
