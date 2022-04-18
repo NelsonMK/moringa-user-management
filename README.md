@@ -7,7 +7,7 @@ This is a simple User Management System with CRUD methods
 Clone the repo:
 
 ```bash
-git clone --depth 1 https://github.com/NelsonMk/moringa-user-management.git
+git clone --depth 1 https://github.com/NelsonMK/moringa-user-management.git
 cd moringa-user-management
 npx rimraf ./.git
 ```
