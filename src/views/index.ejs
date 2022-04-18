@@ -4,54 +4,56 @@
 
 <!-- Main Section -->
 <main id="main">
-	<div class="container">
-		<div class="box-nav d-flex-justify-between">
-			<a href="/add-user" class="border-shadow">
-				<span class="text-gradient">New user</span>
-			</a>
+	<div class="title">
+		<span class="one">General</span>
+		<span class="two"
+			>user<br />
+			management system</span
+		>
+	</div>
+	<div class="subtext">
+		A simple application intended to demonstrate CRUD <br />
+		operations through user management. Key processes <br />include Create,
+		Read, Update and Delete
+	</div>
+	<div class="btn">
+		<button class="button" onclick="document.location='/add-user'">
+			<i class="bx bx-plus bx-xs"></i>
+			New user
+		</button>
+	</div>
+
+	<div class="cont">
+		<% users.forEach(function(user) { %>
+		<div class="card">
+			<!-- icon -->
+			<div class="icon-layout">
+				<object
+					data="./assets/user_icon.svg"
+					width="28"
+					height="28"
+				></object>
+			</div>
+			<div class="det-cont">
+				<!-- user-details -->
+				<div class="user-details">
+					<h5 class="name"><%= user.name %></h5>
+					<div class="text"><%= user.email %></div>
+					<div class="text"><%= user.gender %></div>
+					<div class="text"><%= user.status %></div>
+				</div>
+				<div class="icons-action">
+					<a href="/update-user/<%= user.id %>" class="anchor">
+						<img src="./assets/edit.svg" alt="edit" />
+					</a>
+
+					<a class="anchor delete" data-id="<%= user.id %>">
+						<img src="./assets/delete.svg" alt="delete" />
+					</a>
+				</div>
+			</div>
 		</div>
-
-		<form action="/" method="post">
-			<table class="table">
-				<thead class="thead-dark">
-					<tr>
-						<th>Id</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Gender</th>
-						<th>Status</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for(let i = 0; i < users.length; i++) { %>
-
-					<tr>
-						<td><%= i + 1 %></td>
-						<td><%= users[i].name %></td>
-						<td><%= users[i].email %></td>
-						<td><%= users[i].gender %></td>
-						<td><%= users[i].status%></td>
-						<td>
-							<a
-								href="/update-user/<%= users[i].id %>"
-								class="btn broder-shadow update"
-							>
-								<span class="text-gradient">Update</span>
-							</a>
-							<a
-								class="btn broder-shadow delete"
-								data-id="<%= users[i].id %>"
-							>
-								<span class="text-gradient">Delete</span>
-							</a>
-						</td>
-					</tr>
-
-					<% } %>
-				</tbody>
-			</table>
-		</form>
+		<% }) %>
 	</div>
 </main>
 <!-- /Main Section -->

@@ -9,7 +9,7 @@ const { Users } = require('../models');
  */
 
 exports.getUsers = async () => {
-	return await Users.query();
+	return await Users.query().orderBy('created_at', 'DESC');
 };
 
 /**

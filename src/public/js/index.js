@@ -1,5 +1,5 @@
 (function () {
-	$onDelete = $('.table tbody td a.delete');
+	$onDelete = $('.det-cont .icons-action a.delete');
 	$onDelete.click(function () {
 		let id = $(this).attr('data-id');
 

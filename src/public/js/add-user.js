@@ -4,17 +4,9 @@
 	addUserForm.addEventListener('submit', function (e) {
 		e.preventDefault();
 
-		if (document.querySelector('#email').value == '') {
-			document
-				.getElementById('email')
-				.appendChild(document.createTextNode('Email is required'));
-		}
-
 		const formData = Object.fromEntries(
 			new FormData(addUserForm).entries()
 		);
-
-		console.log(formData);
 
 		fetch('/api/users', {
 			method: 'POST',
@@ -32,14 +24,12 @@
 				} else {
 					alert('User created successfully');
 					addUserForm.reset();
-					console.log(res);
 				}
 			})
 			.catch((error) => {
 				const errorDiv = document.getElementById('error');
 
 				errorDiv.innerText = error.message;
-				console.log(error);
 			});
 	});
 })();
